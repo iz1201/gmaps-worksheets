@@ -33,18 +33,20 @@ public class HMatrix2D
     //}
 //}
 
-    public HMatrix2D()
+    public HMatrix2D(float _x, float _y)
     {
-        // your code here
+        x = _x;
+        y = _y;
+        h = 1.0f;
     }
 
     public HMatrix2D(float[,] multiArray)
     {
-         for (int y = 0; y < 3; y++)
+         for (int y = 0; y < 3; y++) //loop through the rows y from 0 to < 3
         {
-            for (int x = 0; x < 3; x++)
+            for (int x = 0; x < 3; x++) //loop through the column x ffrom 0 to < 3
             {
-                Entries[y, x] = multiArray[y, x];
+                Entries[y, x] = multiArray[y, x]; //assigns the value from multiArray and puts them into Entries. This fills up the new matrix with the given numbers.
             }
     }
 }
@@ -69,13 +71,13 @@ public class HMatrix2D
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
-        HMatrix2D result = new HMatrix2D();
+        HMatrix2D result = new HMatrix2D(); //creates a new matrix to put the result
 
-        for (int y = 0; y < 3; y++)
+        for (int y = 0; y < 3; y++) 
         {
             for (int x = 0; x < 3; x++)
             {
-                result.Entries[y, x] = left.Entries[y, x] + right.Entries[y, x];
+                result.Entries[y, x] = left.Entries[y, x] + right.Entries[y, x]; //this adds the values in the same position of both matrix and puts the result in the new matrix
             }
         }
 
