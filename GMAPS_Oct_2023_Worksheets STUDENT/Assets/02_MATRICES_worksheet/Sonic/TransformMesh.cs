@@ -21,7 +21,7 @@ using UnityEngine;
         meshManager = GetComponent<MeshManager>();
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
-        // Your code here
+        Translate(1f, 1f);
     }
 
     void Translate(float x, float y)
@@ -35,11 +35,18 @@ using UnityEngine;
 
     void Rotate(float angle)
     {
-        transformMatrix.SetIdentity();
+        HMatrix2D toOriginMatrix = new HMatrix2D(); //creates a new matrix to move object to origin
+        HMatrix2D fromOriginMatrix = new HMatrix2D(); //creates a new matrix to move object from origin to its original position
+        HMatrix2D rotateMatrix = new HMatrix2D(); //creates a new matrix to rotate the object
 
-        // Your code here
+        toOriginMatrix.SetTranslationMat(-pos.x, -pos.y); //moves the object to the origin based on its current position pos.x and pos.y
+        fromOriginMatrix.SetTranslationMat(pos.x, pos.y); //moves the object back from the origin to its original position
 
-        transformMatrix = fromOriginMatrix * // Your code here;
+        rotateMatrix.SetRotationMat(angle); //sets the rotation matrix based on an angle
+
+        transformMatrix.SetIdentity(); //creates an identity matrix. This is to hold the final transformation
+
+        transformMatrix = fromOriginMatrix * rotateMatrix * toOriginMatrix; //combine the matrices to form a transformation matrix. it performs in the order, move back from origin, rotate then move to origin
 
         Transform();    
 }

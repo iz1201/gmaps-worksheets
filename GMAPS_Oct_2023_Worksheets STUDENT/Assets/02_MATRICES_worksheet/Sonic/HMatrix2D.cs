@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +15,9 @@ public class HMatrix2D
 
     public HMatrix2D(float[,] multiArray)
     {
-         for (int y = 0; y < 3; y++) //loop through the rows y from 0 to < 3
+         for (int y = 0; y < 3; y++) //loop through the rows y from 0 to < 3. 3 rows
         {
-            for (int x = 0; x < 3; x++) //loop through the column x ffrom 0 to < 3
+            for (int x = 0; x < 3; x++) //loop through the column x ffrom 0 to < 3. 3 columns
             {
                 Entries[y, x] = multiArray[y, x]; //assigns the value from multiArray and puts them into Entries. This fills up the new matrix with the given numbers.
             }
@@ -59,7 +59,7 @@ public class HMatrix2D
 
     public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     {
-        HMatrix2D result = new HMatrix2D();
+        HMatrix2D result = new HMatrix2D(); //creates a new matrix to put the result
 
         for (int y = 0; y < 3; y++)
         {
@@ -171,26 +171,26 @@ public class HMatrix2D
 
     public void SetIdentity()
     {
-    for (int y = 0; y < 3; y++) //loop through the rows y from 0 to < 3
+    for (int y = 0; y < 3; y++) //loop through the rows y from 0 to < 3. 3 rows
     {
-        for (int x = 0; x < 3; x++) //loop through the column x ffrom 0 to < 3
+        for (int x = 0; x < 3; x++) //loop through the column x ffrom 0 to < 3. 3 columns
         {
             Entries[y, x] = (x == y) ? 1 : 0; //if the column x is equal to the rows y, set it to 1, if not, set to 0
         }
     }
 }
 //{
-    //for (int y = 0; y < 3; y++)    //loop through the rows y from 0 to < 3
+    //for (int y = 0; y < 3; y++)   
     //{
-        //for (int x = 0; x < 3; x++)    // loop through the column x from 0 to < 3
+        //for (int x = 0; x < 3; x++)   
         //{
-            //if (x == y)    //checks if x=y
+            //if (x == y) 
             //{
-                //Entries[y, x] = 1;    //if true, set y and x = 1
+                //Entries[y, x] = 1; 
             //}
             //else
             //{
-                //Entries[y, x] = 0;    //if false, set y and x = 0
+                //Entries[y, x] = 0;
             //}
         //}
     //}
