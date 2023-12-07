@@ -1,10 +1,13 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HMatrix2D 
+public class HMatrix2D
 {
-    public float[,] entries { get; set; } = new float[3, 3];
+    public float[,] Entries { get; set; } = new float[3, 3];
+    public float h;
+    public float x;
+    public float y;
 
     public HMatrix2D(float _x, float _y)
     {
@@ -95,7 +98,7 @@ public class HMatrix2D
         return new HVector2D
         (
             left.Entries[0, 0] * right.x + left.Entries[0, 1] * right.y + left.Entries[0, 2] * 1.0f,
-            left.entries[1, 0] * right.x + left.Entries[1, 1] * right.y + left.Entries[1, 2] * 1.0f
+            left.Entries[1, 0] * right.x + left.Entries[1, 1] * right.y + left.Entries[1, 2] * 1.0f
         );
     }
 
@@ -149,25 +152,6 @@ public class HMatrix2D
         return false; //otherwise return false meaning matrices are equal
 }
 
-    public override bool Equals(object obj)
-    {
-        // your code here
-    }
-
-    public override int GetHashCode()
-    {
-        // your code here
-    }
-
-    public HMatrix2D Transpose()
-    {
-        //return // your code here
-    }
-
-    public float GetDeterminant()
-    {
-        //return // your code here
-    }
 
     public void SetIdentity()
     {
@@ -227,7 +211,7 @@ public class HMatrix2D
         {
             for (int c = 0; c < 3; c++)
             {
-                result += entries[r, c] + "  ";
+                result += Entries[r, c] + "  ";
             }
             result += "\n";
         }

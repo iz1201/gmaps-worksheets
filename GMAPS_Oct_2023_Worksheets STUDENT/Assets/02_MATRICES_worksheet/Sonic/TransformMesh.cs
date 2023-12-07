@@ -9,9 +9,11 @@ using UnityEngine;
     public Vector3[] vertices { get; private set; }
 
     private HMatrix2D transformMatrix = new HMatrix2D();
-    HMatrix2D toOriginMatrix = new HMatrix2D();
-    HMatrix2D fromOriginMatrix = new HMatrix2D();
-    HMatrix2D rotateMatrix = new HMatrix2D();
+    private HMatrix2D toOriginMatrix = new HMatrix2D();
+    private HMatrix2D fromOriginMatrix = new HMatrix2D();
+    private HMatrix2D rotateMatrix = new HMatrix2D();
+
+    private HMatrix2D translateMatrix = new HMatrix2D();
 
     private MeshManager meshManager;
     HVector2D pos = new HVector2D();
